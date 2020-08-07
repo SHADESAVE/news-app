@@ -7,7 +7,22 @@
 
     <fragment
         android:id="@+id/newsListFragment"
-        android:name="com.example.newsapp.NewsListFragment"
+        android:name="com.example.newsapp.feature.news.list.presentation.ListFragment"
         android:label="news_list_fragment"
-        tools:layout="@layout/news_list_fragment" />
+        tools:layout="@layout/news_list_fragment">
+        <action
+            android:id="@+id/action_newsListFragment_to_webViewFragment"
+            app:destination="@id/webViewFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="com.example.newsapp.feature.news.webview.presentation.WebViewFragment"
+        android:label="web_view_fragment"
+        tools:layout="@layout/web_view_fragment">
+        <argument
+            android:name="url"
+            android:defaultValue='""'
+            app:argType="string" />
+    </fragment>
 </navigation>
