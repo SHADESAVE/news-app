@@ -40,7 +40,7 @@
             tools:src="@drawable/cat_screaming"/>
 
         <TextView
-            android:id="@+id/news_tittle"
+            android:id="@+id/news_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="#80000000"

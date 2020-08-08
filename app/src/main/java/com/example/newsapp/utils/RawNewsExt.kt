@@ -1,6 +1,6 @@
 package com.example.newsapp.utils
 
-import com.example.newsapp.feature.news.domain.entity.News
+import com.example.newsapp.feature.news.list.domain.entity.News
 import com.example.newsapp.feature.news.list.domain.entity.Article
 
 fun Article.toNews(id: Long, page: Int) =

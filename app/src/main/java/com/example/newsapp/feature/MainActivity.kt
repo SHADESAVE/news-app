@@ -1,4 +1,4 @@
-package com.example.newsapp.feature.news
+package com.example.newsapp.feature
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

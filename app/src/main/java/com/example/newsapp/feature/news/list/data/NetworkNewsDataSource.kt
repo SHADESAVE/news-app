@@ -1,8 +1,8 @@
 package com.example.newsapp.feature.news.list.data
 
-import com.example.newsapp.feature.news.domain.entity.News
-import com.example.newsapp.feature.news.list.presentation.ListViewModel.Companion.LAST_PAGE
-import com.example.newsapp.feature.news.list.presentation.ListViewModel.Companion.PAGE_SIZE
+import com.example.newsapp.feature.news.list.domain.entity.News
+import com.example.newsapp.feature.news.list.data.ListRepositoryImpl.Companion.LAST_PAGE
+import com.example.newsapp.feature.news.list.data.ListRepositoryImpl.Companion.PAGE_SIZE
 import com.example.newsapp.utils.toNews
 
 interface NetworkNewsDataSource {
@@ -26,5 +26,4 @@ class NetworkDataSourceImpl(
             }
         }
     }
-
 }
