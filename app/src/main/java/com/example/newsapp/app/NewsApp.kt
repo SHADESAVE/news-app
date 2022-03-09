@@ -11,6 +11,7 @@ class NewsApp : Application() {
 	override fun onCreate() {
 		super.onCreate()
 		appComponent = DaggerAppComponent.builder()
+			.context(this)
 			.newsHost("https://newsapi.org/")
 			.build()
 	}
