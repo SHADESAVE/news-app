@@ -1,5 +1,6 @@
 package com.example.newsapp.app.di
 
+import com.example.newsapp.feature.news.list.di.NewsModule
 import dagger.Component
 import dagger.Module
 import javax.inject.Scope
@@ -8,7 +9,7 @@ import javax.inject.Scope
 @AppScope
 interface AppComponent
 
-@Module
+@Module(includes = [NewsModule::class])
 interface AppModule
 
 @Scope

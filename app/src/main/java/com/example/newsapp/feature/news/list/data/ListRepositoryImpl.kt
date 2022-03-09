@@ -7,8 +7,9 @@ import com.example.newsapp.feature.news.list.domain.entity.News
 import com.example.newsapp.feature.news.list.data.db.NewsDatabase
 import com.example.newsapp.feature.news.list.domain.ListRepository
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-class ListRepositoryImpl(
+class ListRepositoryImpl @Inject constructor(
     private val networkNewsDataSource: NetworkNewsDataSource,
     private val database: NewsDatabase
 ) : ListRepository {
