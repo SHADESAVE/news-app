@@ -1,29 +1,40 @@
 package com.example.newsapp.feature.news.list.presentation
 
+import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.View
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.newsapp.R
-import com.example.newsapp.feature.Injection
+import com.example.newsapp.app.NewsApp
+import com.example.newsapp.feature.ViewModelFactory
 import com.example.newsapp.feature.news.list.domain.entity.News
 import com.example.newsapp.feature.news.list.presentation.adapter.NewsAdapter
 import com.example.newsapp.feature.news.list.presentation.adapter.NewsLoadStateAdapter
-import kotlinx.android.synthetic.main.news_list_fragment.*
+import kotlinx.android.synthetic.main.news_list_fragment.news_recycler
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 class ListFragment : Fragment(R.layout.news_list_fragment) {
+
+    @Inject
+    lateinit var factory: ViewModelFactory
+
+    override fun onAttach(context: Context) {
+        (context.applicationContext as NewsApp).appComponent.inject(this)
+        super.onAttach(context)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val viewModel: ListViewModel =
-            ViewModelProvider(viewModelStore, Injection.provideViewModelFactory(view.context)).get(ListViewModel::class.java)
+            ViewModelProvider(viewModelStore, factory).get(ListViewModel::class.java)
 
         val adapter = NewsAdapter {
             news -> viewModel.newsItemClicked(news)
